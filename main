@@ -55,7 +55,17 @@ public class Main {
                         if(comodinCambiarDisponible){
                           System.out.println("Cambiando de pregunta...");
                             comodinCambiarDisponible = false;
-                            continue;
+                            i++;
+                            if(i>= preguntas.size()){
+                                System.out.println("No hay mas preguntas disponibles");
+                                return;
+                            }
+                            pregunta = preguntas.get(i);
+                            opciones = pregunta.getOpciones().clone();
+                            for(String opcion : opciones){
+                                System.out.println(opcion);
+                            }
+                            break;
                         }else{
                             System.out.println("YA USASTE ESTE COMODÍN. ");
                         }break;
