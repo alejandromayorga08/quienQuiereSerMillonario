@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class bancoPreguntas {
+    public static List<Pregunta> obtenerPreguntas(){
+        List<Pregunta> preguntas = new ArrayList<>();
+
+        preguntas.add(new Pregunta(
+           "¿Cuál es la capital de Francia?",
+            new String[]{"A) Berlín","B) Bogotá","C) París","D) Roma"},
+            'C' ));
+
+        preguntas.add(new Pregunta(
+                "¿Cuánto es 5 x 6?",
+                new String[]{"A) 25 ","B) 20 ","C) 30 ","D) 35"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué planeta es conocido como el planeta rojo?",
+                new String[]{"A) Tierra", "B) Marte", "C) Neptuno", "D) Júpiter"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿Quién escribió 'Cien años de soledad'?",
+                new String[]{"A)Marino Hinestroza ", "B)Carlos Vives ", "C)Gabriel García Marquez ", "D)Lucho Diaz"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿En qué año llegó el hombre a la Luna?",
+                new String[]{"A) 2016","B) 1986","C) 1969","D) 1995"},
+                'C'));
+
+        Collections.shuffle(preguntas);
+        return preguntas;
+    }
+}
