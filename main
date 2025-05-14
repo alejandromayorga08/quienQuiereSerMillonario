@@ -1,0 +1,109 @@
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Pregunta> preguntas = bancoPreguntas.obtenerPreguntas();
+        int premio = 0;
+        int nivel = 1;
+        boolean comodi5050Disponible = true;
+        boolean comodinLlamadaDisponible = true;
+        boolean comodinCambiarDisponible = true;
+
+        System.out.println("\uD83C\uDFAE ¡Bienvenido a ¿Quién quiere ser millonario!?\uD83C\uDFAE ");
+        System.out.println("-----------------------------------------------------------------------");
+
+        for(int i=0; i< preguntas.size(); i++){
+            Pregunta pregunta = preguntas.get(i);
+            System.out.println("\nNivel "+nivel);
+            System.out.println(pregunta.getEnunciado());
+
+            String[] opciones = pregunta.getOpciones().clone();
+
+            for(String opcion : opciones){
+                System.out.println(opcion);
+            }
+
+            System.out.println("\nComodines disponibles:  ");
+            if(comodi5050Disponible)System.out.println("_ Escribe '5050' para usar el comodín 50/50");
+            if(comodinLlamadaDisponible)System.out.println("_ Escribe 'LLAMAR' para llamar a un amigo ");
+            if(comodinCambiarDisponible)System.out.println("_ Escribe 'CAMBIAR' para cambiar de pregunta");
+
+            boolean responder = false;
+
+            while(!responder){
+                System.out.println("Tu respuesta (A/B/C/D o comodín): ");
+                String entrada = scanner.next().toUpperCase();
+
+                switch (entrada){
+                    case "5050":
+                        if(comodi5050Disponible){
+                            aplicarComodin5050(pregunta);
+                            comodi5050Disponible = false;
+                        }else{
+                            System.out.println("YA USASTE ESTE COMODÍN. ");
+                        }break;
+                    case "LLAMAR":
+                        if(comodinLlamadaDisponible){
+                            aplicarComodinLlamada(pregunta);
+                            comodinLlamadaDisponible = false;
+                        }else{
+                            System.out.println("YA USASTE ESTE COMODÍN. ");
+                        }break;
+                    case "CAMBIAR":
+                        if(comodinCambiarDisponible){
+                          System.out.println("Cambiando de pregunta...");
+                            comodinCambiarDisponible = false;
+                            continue;
+                        }else{
+                            System.out.println("YA USASTE ESTE COMODÍN. ");
+                        }break;
+                    default:
+                        char respuesta = entrada.charAt(0);
+                        if(pregunta.esCorrecta(respuesta)){
+                            premio+=1000*nivel;
+                            System.out.println("¡Correcto! Has ganado $"+(1000 * nivel));
+                            nivel++;
+                        }else{
+                            System.out.println("Respuesta incorrecta.La correcta era:  "+pregunta.getRespuestaCorrecta());
+                            System.out.println("Te llevas $"+ premio);
+                            return;
+                        }
+                        responder = true;
+                        break;
+                }
+                if(nivel>5){
+                    System.out.println("¡Felicidades! ¡Ganaste el juego con $"+premio+"!");
+                    break;
+                }
+            }
+        }
+
+
+
+
+    }
+    public static void aplicarComodin5050(Pregunta pregunta){
+        System.out.println("Comodín 50/50 activado: ");
+        char correcta = pregunta.getRespuestaCorrecta();
+        int mostradas=0;
+        for (String opcion : pregunta.getOpciones()){
+            if(opcion.charAt(0)== correcta || mostradas <1){
+                System.out.println(opcion);
+                if(opcion.charAt(0)!=correcta)mostradas++;
+            }
+        }
+    }
+    public static void aplicarComodinLlamada(Pregunta pregunta){
+        System.out.println("Llamando a tu amigo...");
+        char sugerida = pregunta.getRespuestaCorrecta();
+
+        if(Math.random()<0.1){
+            do{
+                sugerida = (char) ('A'+ (int)(Math.random()*4));
+            }while(sugerida == pregunta.getRespuestaCorrecta());
+        }
+       System.out.println("Tu amigo cree que la respuesta es: "+sugerida);
+    }
+}
