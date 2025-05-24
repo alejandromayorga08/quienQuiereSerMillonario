@@ -7,9 +7,9 @@ public class bancoPreguntas {
         List<Pregunta> preguntas = new ArrayList<>();
 
         preguntas.add(new Pregunta(
-           "¿Cuál es la capital de Francia?",
-            new String[]{"A) Berlín","B) Bogotá","C) París","D) Roma"},
-            'C' ));
+                "¿Cuál es la capital de Francia?",
+                new String[]{"A) Berlín","B) Bogotá","C) París","D) Roma"},
+                'C' ));
 
         preguntas.add(new Pregunta(
                 "¿Cuánto es 5 x 6?",
@@ -30,6 +30,128 @@ public class bancoPreguntas {
                 "¿En qué año llegó el hombre a la Luna?",
                 new String[]{"A) 2016","B) 1986","C) 1969","D) 1995"},
                 'C'));
+        preguntas.add(new Pregunta(
+                "¿Cuál es el país más grande del mundo por superficie?",
+                new String[]{"A) Canadá", "B) Rusia", "C) China", "D) Estados Unidos"},
+                'B'));
+
+
+        preguntas.add(new Pregunta(
+                "¿Cuál es la capital de Australia?",
+                new String[]{"A) Sídney", "B) Melbourne", "C) Canberra", "D) Brisbane"},
+                'C'));
+
+
+        preguntas.add(new Pregunta(
+                "¿Quién pintó 'La última cena'?",
+                new String[]{"A) Miguel Ángel", "B) Leonardo da Vinci", "C) Rafael", "D) Rembrandt"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿En qué continente se encuentra Egipto?",
+                new String[]{"A) Asia", "B) Europa", "C) América", "D) África"},
+                'D'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué gas es esencial para la respiración humana?",
+                new String[]{"A) Dióxido de carbono", "B) Hidrógeno", "C) Oxígeno", "D) Nitrógeno"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Cuál es el océano más grande del planeta?",
+                new String[]{"A) Atlántico", "B) Índico", "C) Ártico", "D) Pacífico"},
+                'D'));
+
+        preguntas.add(new Pregunta(
+                "¿Cuántos planetas tiene el sistema solar?",
+                new String[]{"A) 7", "B) 8", "C) 9", "D) 10"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿Quién fue el primer presidente de los Estados Unidos?",
+                new String[]{"A) Abraham Lincoln", "B) George Washington", "C) Thomas Jefferson", "D) John Adams"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué idioma se habla principalmente en Brasil?",
+                new String[]{"A) Español", "B) Inglés", "C) Portugués", "D) Francés"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué instrumento mide los terremotos?",
+                new String[]{"A) Barómetro", "B) Termómetro", "C) Sismógrafo", "D) Anemómetro"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Cuál es la capital de Japón?",
+                new String[]{"A) Pekín", "B) Tokio", "C) Kioto", "D) Osaka"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿Quién escribió 'Romeo y Julieta'?",
+                new String[]{"A) William Shakespeare", "B) Charles Dickens", "C) Edgar Allan Poe", "D) Jane Austen"},
+                'A'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué animal es conocido por su larga trompa?",
+                new String[]{"A) Jirafa", "B) Elefante", "C) Hipopótamo", "D) Rinoceronte"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿En qué país se encuentran las ruinas de Machu Picchu?",
+                new String[]{"A) México", "B) Bolivia", "C) Perú", "D) Chile"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué día se celebra la independencia de Estados Unidos?",
+                new String[]{"A) 1 de julio", "B) 4 de julio", "C) 14 de julio", "D) 25 de diciembre"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿Cuál es el metal más ligero?",
+                new String[]{"A) Plomo", "B) Hierro", "C) Litio", "D) Aluminio"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué país tiene forma de bota?",
+                new String[]{"A) Grecia", "B) Francia", "C) Italia", "D) España"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Quién fue Albert Einstein?",
+                new String[]{"A) Un poeta", "B) Un físico", "C) Un pintor", "D) Un músico"},
+                'B'));
+
+        preguntas.add(new Pregunta(
+                "¿Cuál es el río más largo del mundo?",
+                new String[]{"A) Amazonas", "B) Nilo", "C) Yangtsé", "D) Misisipi"},
+                'A'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué vitamina se produce al tomar el sol?",
+                new String[]{"A) Vitamina A", "B) Vitamina B", "C) Vitamina D", "D) Vitamina C"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Cuál es el país con más habitantes del mundo?",
+                new String[]{"A) India", "B) China", "C) Estados Unidos", "D) Rusia"},
+                'A'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué número representa el número pi con dos decimales?",
+                new String[]{"A) 3.10", "B) 3.12", "C) 3.14", "D) 3.16"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Cuál es la moneda oficial de Japón?",
+                new String[]{"A) Yuan", "B) Dólar", "C) Yen", "D) Won"},
+                'C'));
+
+        preguntas.add(new Pregunta(
+                "¿Qué país ganó el Mundial de Fútbol en 2018?",
+                new String[]{"A) Alemania", "B) Argentina", "C) Francia", "D) Brasil"},
+                'C'));
+
 
         Collections.shuffle(preguntas);
         return preguntas;
