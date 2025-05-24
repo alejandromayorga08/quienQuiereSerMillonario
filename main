@@ -11,21 +11,21 @@ public class Main {
         boolean comodinLlamadaDisponible = true;
         boolean comodinCambiarDisponible = true;
 
-        System.out.println("\uD83C\uDFAE ¡Bienvenido a ¿Quién quiere ser millonario!?\uD83C\uDFAE ");
-        System.out.println("-----------------------------------------------------------------------");
+        System.out.println(color.PURPURA+"\uD83C\uDFAE ¡Bienvenido a ¿Quién quiere ser millonario!?\uD83C\uDFAE "+color.RESET);
+        System.out.println(color.PURPURA+"-----------------------------------------------------------------------"+color.RESET);
 
-        for(int i=0; i< preguntas.size(); i++){
+        for(int i=0; i< preguntas.size()&&nivel<16; i++){
             Pregunta pregunta = preguntas.get(i);
-            System.out.println("\nNivel "+nivel);
-            System.out.println(pregunta.getEnunciado());
+            System.out.println("\n"+color.CYAN+ "Nivel "+nivel+color.RESET);
+            System.out.println(color.AZUL+pregunta.getEnunciado()+color.RESET);
 
             String[] opciones = pregunta.getOpciones().clone();
 
             for(String opcion : opciones){
-                System.out.println(opcion);
+                System.out.println(color.AMARILLO+opcion+color.RESET);
             }
 
-            System.out.println("\nComodines disponibles:  ");
+            System.out.println("\n"+color.CYAN+ "Comodines disponibles:  "+color.RESET);
             if(comodi5050Disponible)System.out.println("_ Escribe '5050' para usar el comodín 50/50");
             if(comodinLlamadaDisponible)System.out.println("_ Escribe 'LLAMAR' para llamar a un amigo ");
             if(comodinCambiarDisponible)System.out.println("_ Escribe 'CAMBIAR' para cambiar de pregunta");
@@ -33,7 +33,11 @@ public class Main {
             boolean responder = false;
 
             while(!responder){
-                System.out.println("Tu respuesta (A/B/C/D o comodín): ");
+                if (comodi5050Disponible || comodinLlamadaDisponible || comodinCambiarDisponible) {
+                    System.out.println("Tu respuesta (A/B/C/D o comodín): ");
+                } else {
+                    System.out.println("Tu respuesta (A/B/C/D): ");
+                }
                 String entrada = scanner.next().toUpperCase();
 
                 switch (entrada){
@@ -53,7 +57,7 @@ public class Main {
                         }break;
                     case "CAMBIAR":
                         if(comodinCambiarDisponible){
-                          System.out.println("Cambiando de pregunta...");
+                            System.out.println("Cambiando de pregunta...");
                             comodinCambiarDisponible = false;
                             i++;
                             if(i>= preguntas.size()){
@@ -61,6 +65,7 @@ public class Main {
                                 return;
                             }
                             pregunta = preguntas.get(i);
+                            System.out.println(pregunta.getEnunciado());
                             opciones = pregunta.getOpciones().clone();
                             for(String opcion : opciones){
                                 System.out.println(opcion);
@@ -73,17 +78,17 @@ public class Main {
                         char respuesta = entrada.charAt(0);
                         if(pregunta.esCorrecta(respuesta)){
                             premio+=1000*nivel;
-                            System.out.println("¡Correcto! Has ganado $"+(1000 * nivel));
+                            System.out.println(color.VERDE+"¡Correcto! Has ganado $"+(1000 * nivel)+color.RESET);
                             nivel++;
                         }else{
-                            System.out.println("Respuesta incorrecta.La correcta era:  "+pregunta.getRespuestaCorrecta());
-                            System.out.println("Te llevas $"+ premio);
+                            System.out.println(color.ROJO+"Respuesta incorrecta.La correcta era:  "+pregunta.getRespuestaCorrecta()+color.RESET);
+                            System.out.println(color.AMARILLO+"Te llevas $"+ premio+color.RESET);
                             return;
                         }
                         responder = true;
                         break;
                 }
-                if(nivel>5){
+                if(nivel>15){
                     System.out.println("¡Felicidades! ¡Ganaste el juego con $"+premio+"!");
                     break;
                 }
@@ -114,6 +119,6 @@ public class Main {
                 sugerida = (char) ('A'+ (int)(Math.random()*4));
             }while(sugerida == pregunta.getRespuestaCorrecta());
         }
-       System.out.println("Tu amigo cree que la respuesta es: "+sugerida);
+        System.out.println("Tu amigo cree que la respuesta es: "+sugerida);
     }
 }
